@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:initial_setup/core/themes/colors.dart';
 
-ThemeData darkTheme = ThemeData(
-  visualDensity: VisualDensity.adaptivePlatformDensity,
-  useMaterial3: true,
-  fontFamily: 'Roboto',
+ThemeData darkTheme = ThemeData.dark().copyWith(
+  scaffoldBackgroundColor: AppColors.black,
+  appBarTheme: const AppBarTheme(
+    backgroundColor: AppColors.black,
+  ),
 );
