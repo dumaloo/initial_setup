@@ -54,7 +54,7 @@ class _LoginScreenState extends State<LoginScreen> {
               buttonText: 'Sign In',
               onPressed: () {
                 context.read<AuthBloc>().add(
-                      AuthLogin(
+                      AuthLoginEvent(
                         email: emailController.text,
                         password: passwordController.text,
                       ),

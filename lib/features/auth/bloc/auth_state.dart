@@ -5,17 +5,17 @@ sealed class AuthState extends Equatable {
   List<Object> get props => [];
 }
 
-class AuthInitial extends AuthState {}
+class AuthInitialState extends AuthState {}
 
-class AuthSuccess extends AuthState {
+class AuthSuccessState extends AuthState {
   final String uemail;
-  AuthSuccess({required this.uemail});
+  AuthSuccessState({required this.uemail});
 }
 
-class AuthError extends AuthState {
+class AuthErrorState extends AuthState {
   final String message;
 
-  AuthError({required this.message});
+  AuthErrorState({required this.message});
 
   @override
   List<Object> get props => [message];

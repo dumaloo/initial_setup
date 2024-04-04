@@ -5,22 +5,22 @@ sealed class AuthEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class AuthLogin extends AuthEvent {
+class AuthLoginEvent extends AuthEvent {
   final String email;
   final String password;
 
-  AuthLogin({required this.email, required this.password});
+  AuthLoginEvent({required this.email, required this.password});
 
   @override
   List<Object> get props => [email, password];
 }
 
-class AuthRegister extends AuthEvent {
+class AuthRegisterEvent extends AuthEvent {
   final String email;
   final String password;
   final String name;
 
-  AuthRegister(
+  AuthRegisterEvent(
       {required this.email, required this.password, required this.name});
 
   @override

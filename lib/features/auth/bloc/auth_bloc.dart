@@ -11,23 +11,23 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   AuthBloc({required AuthRepository authRepository})
       : _authRepository = authRepository,
-        super(AuthInitial()) {
-    on<AuthLogin>((event, emit) async {
+        super(AuthInitialState()) {
+    on<AuthLoginEvent>((event, emit) async {
       try {
         await _authRepository.signIn(event.email, event.password);
-        emit(AuthSuccess(uemail: event.email));
+        emit(AuthSuccessState(uemail: event.email));
       } catch (e) {
-        emit(AuthError(message: e.toString()));
+        emit(AuthErrorState(message: e.toString()));
         Logger().e('Failed to sign in: $e');
       }
     });
 
-    on<AuthRegister>((event, emit) async {
+    on<AuthRegisterEvent>((event, emit) async {
       try {
         await _authRepository.signUp(event.name, event.email, event.password);
-        emit(AuthSuccess(uemail: event.email));
+        emit(AuthSuccessState(uemail: event.email));
       } catch (e) {
-        emit(AuthError(message: e.toString()));
+        emit(AuthErrorState(message: e.toString()));
         Logger().e('Failed to sign up: $e');
       }
     });

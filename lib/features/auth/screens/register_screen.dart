@@ -64,7 +64,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 buttonText: 'Sign Up',
                 onPressed: () {
                   context.read<AuthBloc>().add(
-                        AuthRegister(
+                        AuthRegisterEvent(
                           email: emailController.text,
                           password: passwordController.text,
                           name: nameController.text,
