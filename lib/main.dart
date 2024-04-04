@@ -2,16 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:initial_setup/core/themes/schemes/dark_theme.dart';
 import 'package:initial_setup/features/auth/bloc/auth_bloc.dart';
-import 'package:initial_setup/features/auth/domain/auth_repository.dart';
 import 'package:initial_setup/features/auth/screens/login_screen.dart';
+import 'package:initial_setup/initializer.dart';
 
 void main() {
+  Initializer().initApp();
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(
-        create: (_) => AuthBloc(
-          authRepository: AuthRepository(),
-        ),
+        create: (_) => Initializer().serviceLocator<AuthBloc>(),
       ),
     ],
     child: const MyApp(),
