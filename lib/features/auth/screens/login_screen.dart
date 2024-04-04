@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:initial_setup/features/audio/screens/audio_playback_recording_screen.dart';
 import 'package:initial_setup/features/auth/widgets/auth_button.dart';
 import 'package:initial_setup/features/auth/widgets/auth_text_field.dart';
 import 'package:initial_setup/features/auth/bloc/auth_bloc.dart';
@@ -59,6 +60,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         password: passwordController.text,
                       ),
                     );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AudioPlaybackRecorderScreen(),
+                  ),
+                );
               },
             ),
             const SizedBox(height: 20),

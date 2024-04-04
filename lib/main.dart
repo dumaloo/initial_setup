@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:initial_setup/core/themes/schemes/dark_theme.dart';
+import 'package:initial_setup/features/audio/bloc/audio_bloc.dart';
 import 'package:initial_setup/features/auth/bloc/auth_bloc.dart';
 import 'package:initial_setup/features/auth/screens/login_screen.dart';
 import 'package:initial_setup/initializer.dart';
@@ -12,6 +13,7 @@ void main() {
       BlocProvider(
         create: (_) => Initializer().serviceLocator<AuthBloc>(),
       ),
+      BlocProvider(create: (_) => AudioBloc()),
     ],
     child: const MyApp(),
   ));
